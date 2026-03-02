@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background: #080808;
+    color: #F5F0EC;
+    font-family: var(--font-dm-sans), sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Hide default cursor on desktop */
+  @media (min-width: 768px) {
+    * {
+      cursor: none !important;
+    }
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #080808;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #E84141;
+    border-radius: 3px;
+  }
+
+  ::selection {
+    background: rgba(232, 65, 65, 0.3);
+    color: #F5F0EC;
+  }
+}
+
+@layer components {
+  .noise-bg {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 0
+    );
+    background-size: 24px 24px;
+  }
+
+  .section-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+    max-width: 1280px;
+    margin: 0 auto;
+    transform-origin: left;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #E84141;
+    font-weight: 500;
+    margin-bottom: 12px;
+    display: block;
+    font-family: var(--font-dm-sans), sans-serif;
+  }
+
+  .section-title {
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 20px;
+    color: #F5F0EC;
+    font-family: var(--font-syne), sans-serif;
+  }
+
+  .section-subtitle {
+    font-size: 17px;
+    font-weight: 300;
+    color: #888888;
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+  .card-base {
+    background: #161414;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-base::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, #E84141, #E85D26);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 400ms ease;
+  }
+
+  .card-base:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+@layer utilities {
+  .will-change-transform {
+    will-change: transform;
+  }
+}
