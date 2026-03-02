@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -20,7 +20,7 @@ export default function Gallery() {
     const sectionRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const currentSection = sectionRef.current;
         const currentTrack = trackRef.current;
 
@@ -36,7 +36,7 @@ export default function Gallery() {
                 ease: "none",
                 scrollTrigger: {
                     trigger: currentSection,
-                    start: "top top",
+                    start: "top 120px",
                     end: () => "+=" + currentTrack.scrollWidth,
                     scrub: 1,
                     pin: true,
@@ -69,28 +69,30 @@ export default function Gallery() {
             </SectionWrapper>
 
             {/* Desktop — Horizontal Scroll */}
-            <div ref={sectionRef} className="hidden md:block overflow-hidden attach-scroll">
-                <div ref={trackRef} className="flex gap-6 pl-[80px] will-change-transform" style={{ width: "fit-content" }}>
-                    {galleryImages.map((img, i) => (
-                        <div
-                            key={i}
-                            className={`relative flex-shrink-0 overflow-hidden rounded-card group ${i === 0 ? "w-[600px] h-[500px]" : i === 4 ? "w-[500px] h-[400px]" : "w-[350px] h-[450px]"
-                                }`}
-                            data-cursor="project"
-                        >
-                            <Image
-                                src={img.src}
-                                alt={img.alt}
-                                fill
-                                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.06]"
-                                sizes="600px"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                            <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-2 group-hover:translate-y-0">
-                                <h3 className="font-syne font-bold text-[20px] text-white">{img.title}</h3>
+            <div className="hidden md:block">
+                <div ref={sectionRef} className="overflow-hidden attach-scroll">
+                    <div ref={trackRef} className="flex gap-6 pl-[80px] will-change-transform" style={{ width: "fit-content" }}>
+                        {galleryImages.map((img, i) => (
+                            <div
+                                key={i}
+                                className={`relative flex-shrink-0 overflow-hidden rounded-card group ${i === 0 ? "w-[600px] h-[500px]" : i === 4 ? "w-[500px] h-[400px]" : "w-[350px] h-[450px]"
+                                    }`}
+                                data-cursor="project"
+                            >
+                                <Image
+                                    src={img.src}
+                                    alt={img.alt}
+                                    fill
+                                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.06]"
+                                    sizes="600px"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                                <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-2 group-hover:translate-y-0">
+                                    <h3 className="font-syne font-bold text-[20px] text-white">{img.title}</h3>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
 

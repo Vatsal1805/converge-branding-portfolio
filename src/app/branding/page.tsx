@@ -37,7 +37,7 @@ export default function BrandingPage() {
             </section>
 
             {/* CTA */}
-            <section className="py-[120px] text-center">
+            <section className="py-[60px] text-center">
                 <div className="max-w-[800px] mx-auto px-6">
                     <h2 className="section-title mb-8">Ready to define your legacy?</h2>
                     <Button variant="primary" href="/contact">Start Your Rebrand</Button>

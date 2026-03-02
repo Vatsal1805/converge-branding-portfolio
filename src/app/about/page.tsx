@@ -13,7 +13,7 @@ export default function AboutPage() {
             <Values />
 
             {/* CTA Section */}
-            <section className="py-[120px] text-center">
+            <section className="py-[60px] text-center">
                 <div className="max-w-[700px] mx-auto px-6">
                     <h2 className="section-title mb-8">Let&apos;s write your brand&apos;s next chapter together.</h2>
                     <Button variant="primary" href="/contact">Apply to Work With Us</Button>
