@@ -32,16 +32,15 @@ export default function Nav() {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-[100] h-[80px] flex items-center transition-all duration-400 ease-out ${scrolled
-                    ? "bg-[rgba(8,8,8,0.92)] backdrop-blur-[20px] border-b border-white/[0.06]"
-                    : "bg-transparent border-b border-transparent"
+                ? "bg-[rgba(8,8,8,0.92)] backdrop-blur-[20px] border-b border-white/[0.06]"
+                : "bg-transparent border-b border-transparent"
                 }`}
         >
             <div className="max-w-content mx-auto w-full px-[24px] md:px-[40px] lg:px-[80px] flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center">
                     <span className="font-syne font-extrabold text-[22px] text-white tracking-tight">
-                        Converge
-                        <span className="text-accent">.</span>
+                        Converge <span className="text-accent">Digitals</span>
                     </span>
                 </Link>
 
@@ -52,15 +51,15 @@ export default function Nav() {
                             key={link.href}
                             href={link.href}
                             className={`relative text-[13px] uppercase tracking-[2px] font-dm font-normal transition-colors duration-300 group ${pathname === link.href
-                                    ? "text-white"
-                                    : "text-textWhite/65 hover:text-white"
+                                ? "text-white"
+                                : "text-textWhite/65 hover:text-white"
                                 }`}
                         >
                             {link.label}
                             <span
                                 className={`absolute -bottom-1 left-0 h-[1px] bg-white transition-transform duration-300 origin-left ${pathname === link.href
-                                        ? "w-full scale-x-100"
-                                        : "w-full scale-x-0 group-hover:scale-x-100"
+                                    ? "w-full scale-x-100"
+                                    : "w-full scale-x-0 group-hover:scale-x-100"
                                     }`}
                             />
                         </Link>
@@ -108,8 +107,8 @@ export default function Nav() {
                             key={link.href}
                             href={link.href}
                             className={`text-[14px] uppercase tracking-[2px] font-dm transition-colors ${pathname === link.href
-                                    ? "text-white"
-                                    : "text-textWhite/65 hover:text-white"
+                                ? "text-white"
+                                : "text-textWhite/65 hover:text-white"
                                 }`}
                         >
                             {link.label}

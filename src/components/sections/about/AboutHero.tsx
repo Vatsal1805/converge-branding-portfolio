@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 const stats = [
-    { label: "Founded", value: "2023" },
+    { label: "Founded", value: "2025" },
     { label: "Global Clients", value: "100+" },
     { label: "Awards Won", value: "12" },
     { label: "Team Size", value: "24" }

@@ -123,7 +123,7 @@ export default function Hero() {
                     ref={eyebrowRef}
                     className="eyebrow opacity-0 mb-6 block"
                 >
-                    EST. 2023 — CONVERGE DIGITALS
+                    EST. 2025 — CONVERGE DIGITALS
                 </span>
 
                 {/* Headline */}
@@ -193,13 +193,6 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Scroll indicator */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-                <span className="text-[10px] tracking-[3px] uppercase text-[#555] font-dm">
-                    Scroll to explore
-                </span>
-                <div className="w-[1px] h-8 bg-gradient-to-b from-accent to-transparent" />
-            </div>
         </section>
     );
 }

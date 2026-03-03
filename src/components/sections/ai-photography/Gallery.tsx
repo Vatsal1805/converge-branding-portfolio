@@ -1,20 +1,16 @@
 "use client";
 
 import React, { useRef, useLayoutEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionWrapper from "@/components/ui/SectionWrapper";
+import { projects } from "@/data/projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const galleryImages = [
-    { src: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=900&q=80", alt: "AI Fashion Editorial 1", title: "Ethereal Collection" },
-    { src: "https://images.unsplash.com/photo-1550614000-4895a10e1bfd?w=900&q=80", alt: "AI Fashion Editorial 2", title: "Street Couture" },
-    { src: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=900&q=80", alt: "AI Fashion Editorial 3", title: "Modern Luxe" },
-    { src: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=900&q=80", alt: "AI Fashion Editorial 4", title: "Neo Classic" },
-    { src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=80", alt: "AI Fashion Editorial 5", title: "Avant Garde" },
-];
+const aiProjects = projects.filter((p) => p.category === "AI Photography");
 
 export default function Gallery() {
     const sectionRef = useRef<HTMLDivElement>(null);
@@ -72,25 +68,27 @@ export default function Gallery() {
             <div className="hidden lg:block">
                 <div ref={sectionRef} className="overflow-hidden attach-scroll">
                     <div ref={trackRef} className="flex gap-6 pl-[80px] will-change-transform" style={{ width: "fit-content" }}>
-                        {galleryImages.map((img, i) => (
-                            <div
-                                key={i}
-                                className={`relative flex-shrink-0 overflow-hidden rounded-card group ${i === 0 ? "w-[600px] h-[500px]" : i === 4 ? "w-[500px] h-[400px]" : "w-[350px] h-[450px]"
+                        {aiProjects.map((project, i) => (
+                            <Link
+                                key={project.slug}
+                                href={`/work/${project.slug}`}
+                                className={`relative flex-shrink-0 overflow-hidden rounded-card group block ${i === 0 ? "w-[600px] h-[500px]" : i === aiProjects.length - 1 ? "w-[500px] h-[400px]" : "w-[350px] h-[450px]"
                                     }`}
                                 data-cursor="project"
                             >
                                 <Image
-                                    src={img.src}
-                                    alt={img.alt}
+                                    src={project.heroImage}
+                                    alt={project.name}
                                     fill
                                     className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.06]"
                                     sizes="600px"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                                 <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-2 group-hover:translate-y-0">
-                                    <h3 className="font-syne font-bold text-[20px] text-white">{img.title}</h3>
+                                    <h3 className="font-syne font-bold text-[20px] text-white">{project.name}</h3>
+                                    <p className="font-dm text-[13px] text-white/70 mt-1">{project.tagline}</p>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
@@ -98,14 +96,14 @@ export default function Gallery() {
 
             {/* Mobile & Tablet — Vertical scroll fallback */}
             <div className="lg:hidden px-[24px] md:px-[40px] grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                {galleryImages.map((img, i) => (
-                    <div key={i} className="relative overflow-hidden rounded-card h-[280px] lg:h-[320px] group">
-                        <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                {aiProjects.map((project) => (
+                    <Link key={project.slug} href={`/work/${project.slug}`} className="relative overflow-hidden rounded-card h-[280px] lg:h-[320px] group block">
+                        <Image src={project.heroImage} alt={project.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                         <div className="absolute bottom-4 left-4">
-                            <h3 className="font-syne font-bold text-[18px] md:text-[20px] text-white">{img.title}</h3>
+                            <h3 className="font-syne font-bold text-[18px] md:text-[20px] text-white">{project.name}</h3>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </>

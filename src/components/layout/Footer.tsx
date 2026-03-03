@@ -80,12 +80,19 @@ export default function Footer() {
                     {/* Col 1: Logo + Tagline + Social */}
                     <div className="space-y-6">
                         <Link href="/" className="inline-block">
-                            <span className="font-syne font-extrabold text-[22px] text-white">
-                                Converge<span className="text-accent">.</span>
+                            <span className="font-syne font-extrabold text-[22px] text-white tracking-tight">
+                                Converge <span className="text-accent">Digitals</span>
                             </span>
                         </Link>
                         <p className="text-[14px] text-muted font-dm font-light leading-relaxed">
                             A cinematic luxury agency bridging branding and AI photography.
+                        </p>
+                        <p className="text-[13px] text-muted/80 font-dm font-light flex items-center gap-1.5">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Jharkhand, India
                         </p>
                         <div className="flex gap-3">
                             <SocialIcon type="instagram" href="https://instagram.com/convergedigitals" />

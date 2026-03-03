@@ -4,8 +4,8 @@ import React from "react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 
 const rows = [
-    { metric: "Production Time", traditional: "4-8 Weeks", converge: "3-5 Days" },
-    { metric: "Budget Required", traditional: "$25K-$100K+", converge: "$2.5K-$10K" },
+    { metric: "Production Time", traditional: "4-8 Weeks", converge: "1-2 Weeks" },
+    { metric: "Budget Required", traditional: "₹25K-₹100K+", converge: "₹5K-₹45K" },
     { metric: "Locations", traditional: "Limited Travel", converge: "Unlimited Global" },
     { metric: "Model Casting", traditional: "Physical Sessions", converge: "AI Synthesized" },
     { metric: "Scalability", traditional: "Fixed Count", converge: "On-Demand Infinity" },

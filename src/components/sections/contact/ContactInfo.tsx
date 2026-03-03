@@ -10,16 +10,6 @@ export default function ContactInfo() {
                 <p className="font-syne font-bold text-[18px] md:text-[24px] text-white group cursor-pointer break-all">
                     hello@convergedigitals.com
                 </p>
-                <p className="font-dm text-muted mt-2">+91 22 4900 2100</p>
-            </div>
-
-            <div>
-                <h3 className="font-syne font-bold text-[14px] text-accent uppercase tracking-widest mb-4">Headquarters</h3>
-                <p className="font-dm text-[18px] text-white leading-relaxed">
-                    Level 5, Creative Park<br />
-                    Bandra Kurla Complex<br />
-                    Mumbai, 400051
-                </p>
             </div>
 
             <div>

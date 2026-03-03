@@ -24,7 +24,7 @@ export default function Story() {
                     <h2 className="section-title mb-8">Our Story</h2>
                     <div className="space-y-6 text-muted font-dm text-[17px] leading-relaxed">
                         <p>
-                            Founded in 2023, Converge Digitals emerged from a single observation: the traditional fashion photography model was broken. It was slow, expensive, and environmentally unsustainable.
+                            Founded in 2025, Converge Digitals emerged from a single observation: the traditional fashion photography model was broken. It was slow, expensive, and environmentally unsustainable.
                         </p>
                         <p>
                             We saw an opportunity to bridge the gap between high-end luxury branding and the frontier of Artificial Intelligence. By training proprietary models on human-led artistic direction, we&apos;ve created a new paradigm for visual content creation.

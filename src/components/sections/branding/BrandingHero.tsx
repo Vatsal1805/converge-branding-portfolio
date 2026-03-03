@@ -24,7 +24,7 @@ export default function BrandingHero() {
     }, []);
 
     return (
-        <section className="relative pt-[120px] pb-[60px] md:pt-[160px] md:pb-[80px] overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0 max-w-content mx-auto">
+        <section className="relative pt-[120px] pb-[60px] md:pt-[160px] md:pb-[80px] overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24 max-w-content mx-auto">
             <div className="w-full lg:w-1/2 px-[24px] md:px-[40px] lg:pl-[80px] lg:pr-[40px] text-left">
                 <span className="eyebrow mb-6 block">STRATEGIC BRANDING</span>
                 <h1
