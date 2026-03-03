@@ -61,11 +61,11 @@ export default function StatCounter({
         <div ref={containerRef} className="text-center">
             <span
                 ref={numberRef}
-                className="font-syne font-extrabold text-[48px] text-white block"
+                className="font-syne font-extrabold text-[28px] md:text-[48px] text-white block"
             >
                 0
             </span>
-            <span className="text-[10px] font-dm text-muted tracking-[2px] uppercase mt-1 block">
+            <span className="text-[9px] md:text-[10px] font-dm text-muted tracking-[2px] uppercase mt-1 block">
                 {label}
             </span>
         </div>

@@ -7,7 +7,7 @@ export default function ContactInfo() {
         <div className="space-y-12 animate-in" style={{ animationDelay: "0.2s" }}>
             <div>
                 <h3 className="font-syne font-bold text-[14px] text-accent uppercase tracking-widest mb-4">Direct Contact</h3>
-                <p className="font-syne font-bold text-[24px] text-white group cursor-pointer">
+                <p className="font-syne font-bold text-[18px] md:text-[24px] text-white group cursor-pointer break-all">
                     hello@convergedigitals.com
                 </p>
                 <p className="font-dm text-muted mt-2">+91 22 4900 2100</p>

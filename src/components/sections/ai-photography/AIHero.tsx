@@ -23,40 +23,52 @@ export default function AIHero() {
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden -mt-[80px] pt-[80px]">
             {/* Background */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-[#080808]">
+                <div
+                    className="absolute inset-0 z-0"
+                    style={{
+                        background:
+                            "radial-gradient(circle at 50% 50%, rgba(232,65,65,0.15) 0%, transparent 60%)",
+                    }}
+                />
                 <Image
                     src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1600&q=80"
                     alt="AI Photography cinematic background"
                     fill
-                    className="object-cover opacity-40"
+                    className="object-cover z-0"
+                    style={{ mixBlendMode: 'luminosity', opacity: 0.5 }}
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
+                <div
+                    className="absolute inset-0 z-10"
+                    style={{
+                        background: "linear-gradient(to bottom, rgba(8,8,8,0.6) 0%, rgba(8,8,8,0.4) 50%, rgba(8,8,8,0.8) 100%)"
+                    }}
+                />
             </div>
 
-            <div className="relative z-10 text-center px-6 max-w-content mx-auto">
+            <div className="relative z-10 text-center px-[24px] md:px-[40px] lg:px-[80px] max-w-content mx-auto w-full">
                 <span className="eyebrow mb-6 block">AI POWERED PHOTOGRAPHY</span>
 
-                <div className="mb-5">
+                <div className="mb-5 w-full">
                     <div ref={line1Ref} className="will-change-transform" style={{ clipPath: "inset(0 100% 0 0)" }}>
-                        <h1 className="font-syne font-extrabold text-hero leading-[0.92] tracking-[-3px] text-textWhite whitespace-nowrap">
+                        <h1 className="font-syne font-extrabold text-[clamp(32px,9vw,48px)] md:text-[clamp(44px,8vw,64px)] lg:text-[clamp(56px,8vw,96px)] leading-[0.92] tracking-[-2px] md:tracking-[-3px] text-textWhite whitespace-normal lg:whitespace-nowrap w-full text-center">
                             PHOTOSHOOTS
                         </h1>
                     </div>
                     <div ref={line2Ref} className="will-change-transform" style={{ clipPath: "inset(0 100% 0 0)" }}>
-                        <h1 className="font-syne font-extrabold text-hero leading-[0.92] tracking-[-3px] text-accent whitespace-nowrap">
+                        <h1 className="font-syne font-extrabold text-[clamp(32px,9vw,48px)] md:text-[clamp(44px,8vw,64px)] lg:text-[clamp(56px,8vw,96px)] leading-[0.92] tracking-[-2px] md:tracking-[-3px] text-accent whitespace-normal lg:whitespace-nowrap w-full text-center">
                             REIMAGINED.
                         </h1>
                     </div>
                 </div>
 
-                <p className="section-subtitle mx-auto text-center mb-7 max-w-[560px]">
+                <p className="section-subtitle mx-auto text-center mb-7 max-w-full md:max-w-[560px] px-0 break-words">
                     Eliminate logistics of traditional production. High-end editorial AI photography tailored for luxury brands.
                 </p>
 
-                <div className="flex justify-center gap-4">
+                <div className="flex justify-center">
                     <Button variant="primary" href="/contact">Book an AI Shoot</Button>
-                    <Button variant="ghost" href="/work">View Portfolio</Button>
                 </div>
             </div>
         </section>

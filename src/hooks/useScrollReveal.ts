@@ -26,15 +26,18 @@ export function useScrollReveal({
         const items = element.querySelectorAll(selector);
         if (!items.length) return;
 
+        const isMobile = window.innerWidth < 768;
+        const actualY = isMobile ? Math.min(y, 30) : y;
+
         const ctx = gsap.context(() => {
             gsap.fromTo(
                 items,
-                { opacity: 0, y: y, scale: 0.98 },
+                { opacity: 0, y: actualY, scale: 0.98 },
                 {
                     opacity: 1,
                     y: 0,
                     scale: 1,
-                    duration: 1,
+                    duration: isMobile ? 0.6 : 1,
                     stagger: stagger,
                     ease: "power3.out",
                     scrollTrigger: {

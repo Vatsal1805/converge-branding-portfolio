@@ -97,11 +97,11 @@ export default function Testimonials() {
             </div>
 
             {/* Client logos */}
-            <div className="flex flex-wrap justify-center gap-8 pb-8 mb-10 border-b border-white/[0.06] animate-in">
+            <div className="flex flex-wrap lg:flex-nowrap justify-center gap-[16px] md:gap-8 pb-8 mb-10 border-b border-white/[0.06] animate-in">
                 {logos.map((logo) => (
                     <span
                         key={logo}
-                        className="font-syne font-bold text-[14px] text-white/30 tracking-[2px] uppercase transition-all duration-300 hover:text-white/80"
+                        className="w-[calc(33.333%-11px)] lg:w-auto text-center font-syne font-bold text-[12px] md:text-[14px] text-white/30 tracking-[2px] uppercase transition-all duration-300 hover:text-white/80"
                     >
                         {logo}
                     </span>
@@ -111,16 +111,16 @@ export default function Testimonials() {
             {/* Testimonial cards */}
             <div
                 ref={cardsRef}
-                className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                className="grid grid-cols-1 lg:grid-cols-3 gap-6"
                 onMouseEnter={() => setPaused(true)}
                 onMouseLeave={() => setPaused(false)}
             >
                 {testimonials.map((t, i) => (
                     <div
                         key={i}
-                        className={`testimonial-card card-base p-6 md:p-8 min-h-[200px] max-h-[320px] flex flex-col transition-all duration-500 ${active === i
-                                ? "border-accent/30 shadow-[0_0_40px_rgba(232,65,65,0.08)]"
-                                : "border-white/[0.07]"
+                        className={`testimonial-card card-base p-6 md:p-8 h-auto max-h-[320px] flex flex-col transition-all duration-500 ${active === i
+                            ? "border-accent/30 shadow-[0_0_40px_rgba(232,65,65,0.08)]"
+                            : "border-white/[0.07]"
                             }`}
                         data-cursor="project"
                     >

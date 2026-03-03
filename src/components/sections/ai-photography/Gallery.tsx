@@ -25,7 +25,7 @@ export default function Gallery() {
         const currentTrack = trackRef.current;
 
         if (!currentSection || !currentTrack) return;
-        if (window.innerWidth < 768) return;
+        if (window.innerWidth < 1024) return;
 
         const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (prefersReduced) return;
@@ -69,7 +69,7 @@ export default function Gallery() {
             </SectionWrapper>
 
             {/* Desktop — Horizontal Scroll */}
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
                 <div ref={sectionRef} className="overflow-hidden attach-scroll">
                     <div ref={trackRef} className="flex gap-6 pl-[80px] will-change-transform" style={{ width: "fit-content" }}>
                         {galleryImages.map((img, i) => (
@@ -96,14 +96,14 @@ export default function Gallery() {
                 </div>
             </div>
 
-            {/* Mobile — Vertical scroll fallback */}
-            <div className="md:hidden px-[24px] space-y-6">
+            {/* Mobile & Tablet — Vertical scroll fallback */}
+            <div className="lg:hidden px-[24px] md:px-[40px] grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {galleryImages.map((img, i) => (
-                    <div key={i} className="relative overflow-hidden rounded-card h-[280px] group">
-                        <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="100vw" />
+                    <div key={i} className="relative overflow-hidden rounded-card h-[280px] lg:h-[320px] group">
+                        <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                         <div className="absolute bottom-4 left-4">
-                            <h3 className="font-syne font-bold text-[18px] text-white">{img.title}</h3>
+                            <h3 className="font-syne font-bold text-[18px] md:text-[20px] text-white">{img.title}</h3>
                         </div>
                     </div>
                 ))}

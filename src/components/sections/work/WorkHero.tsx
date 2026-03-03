@@ -23,9 +23,8 @@ export default function WorkHero() {
                 <span className="eyebrow">OUR WORK</span>
                 <h1
                     ref={headlineRef}
-                    className="font-syne font-extrabold leading-[1] tracking-[-3px] text-textWhite mb-5"
+                    className="font-syne font-extrabold text-[clamp(40px,10vw,56px)] lg:text-[clamp(60px,8vw,100px)] leading-[1] tracking-[-3px] text-textWhite mb-5"
                     style={{
-                        fontSize: "clamp(60px, 8vw, 100px)",
                         background: "linear-gradient(to bottom, #F5F0EC, rgba(245,240,236,0.2))",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",

@@ -32,22 +32,24 @@ export default function CaseStudies() {
                 <h2 className="section-title text-white">Identity In Action</h2>
             </div>
 
-            <div ref={revealRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div ref={revealRef} className="flex flex-col gap-16 lg:gap-24">
                 {caseStudies.map((study, i) => (
-                    <div key={i} className="case-study-card group cursor-pointer">
-                        <div className="relative aspect-[16/10] overflow-hidden rounded-card mb-6 border border-white/[0.05]">
-                            <Image
-                                src={study.image}
-                                alt={study.title}
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                sizes="(max-width: 1024px) 100vw, 50vw"
-                            />
-                            <div className="absolute top-4 right-4 bg-accent text-white font-dm text-[11px] font-bold px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                                {study.stats}
+                    <div key={i} className={`case-study-card group cursor-pointer flex flex-col lg:flex-row items-center gap-6 lg:gap-16 ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+                        <div className="w-full lg:w-1/2">
+                            <div className="relative w-full aspect-video lg:aspect-[4/3] overflow-hidden rounded-card border border-white/[0.05]">
+                                <Image
+                                    src={study.image}
+                                    alt={study.title}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                />
+                                <div className="absolute top-4 right-4 bg-accent text-white font-dm text-[11px] font-bold px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                                    {study.stats}
+                                </div>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-2">
+                        <div className="w-full lg:w-1/2 flex flex-col gap-2">
                             <span className="text-accent text-[12px] font-dm tracking-[2px] uppercase">{study.category}</span>
                             <h3 className="font-syne font-bold text-[28px] text-white group-hover:text-accent transition-colors">
                                 {study.title}

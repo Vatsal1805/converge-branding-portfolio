@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionWrapper from "@/components/ui/SectionWrapper";
@@ -11,40 +12,40 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
     {
+        slug: "zupitar-fashion",
         name: "Zupitar Fashion",
         category: "Editorial",
-        image:
-            "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
     },
     {
+        slug: "nexora-wear",
         name: "Nexora Wear",
         category: "AI Creative",
-        image:
-            "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80",
     },
     {
+        slug: "luxlabel-co",
         name: "LuxLabel Co",
         category: "Branding",
-        image:
-            "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80",
     },
     {
+        slug: "aether-style",
         name: "Aether Style",
         category: "Campaigns",
-        image:
-            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
     },
     {
+        slug: "vogue-ai",
         name: "Vogue AI",
         category: "AI Fashion",
-        image:
-            "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
     },
     {
+        slug: "ethereal-silk",
         name: "Ethereal Silk",
         category: "Luxe Design",
-        image:
-            "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80",
     },
 ];
 
@@ -103,9 +104,10 @@ export default function FeaturedWork() {
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
                 {projects.map((project, i) => (
-                    <div
+                    <Link
                         key={i}
-                        className="project-card group relative overflow-hidden rounded-card h-[280px] md:h-[320px] lg:h-[360px] max-h-[380px] border border-white/[0.07]"
+                        href={`/work/${project.slug}`}
+                        className="project-card group relative overflow-hidden rounded-card h-[260px] md:h-[300px] lg:h-[360px] border border-white/[0.07] block cursor-pointer hover:scale-[1.02] transition-transform duration-300"
                         data-cursor="project"
                         data-magnetic
                     >
@@ -125,7 +127,7 @@ export default function FeaturedWork() {
                                 {project.name}
                             </h3>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </SectionWrapper>

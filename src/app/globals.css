@@ -11,6 +11,7 @@
 
   html {
     scroll-behavior: auto;
+    overflow-x: hidden;
   }
 
   body {
@@ -20,6 +21,14 @@
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  @media (min-width: 1024px) {
+    body {
+      font-size: 17px;
+    }
   }
 
   /* Hide default cursor on desktop */
@@ -51,11 +60,9 @@
 
 @layer components {
   .noise-bg {
-    background-image: radial-gradient(
-      circle at 1px 1px,
-      rgba(255, 255, 255, 0.04) 1px,
-      transparent 0
-    );
+    background-image: radial-gradient(circle at 1px 1px,
+        rgba(255, 255, 255, 0.04) 1px,
+        transparent 0);
     background-size: 24px 24px;
   }
 
@@ -79,21 +86,39 @@
   }
 
   .section-title {
-    font-size: clamp(40px, 5vw, 72px);
+    font-size: clamp(28px, 7vw, 36px);
     font-weight: 800;
     letter-spacing: -2px;
-    line-height: 1;
+    line-height: 1.1;
     margin-bottom: 20px;
     color: #F5F0EC;
     font-family: var(--font-syne), sans-serif;
   }
 
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: clamp(32px, 5vw, 48px);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-title {
+      font-size: clamp(40px, 5vw, 72px);
+    }
+  }
+
   .section-subtitle {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 300;
     color: #888888;
-    line-height: 1.75;
+    line-height: 1.7;
     max-width: 560px;
+  }
+
+  @media (min-width: 1024px) {
+    .section-subtitle {
+      font-size: 17px;
+    }
   }
 
   .card-base {
@@ -126,4 +151,25 @@
   .will-change-transform {
     will-change: transform;
   }
+}
+
+/* CTA Gradient Animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.cta-gradient {
+  background: linear-gradient(-45deg, #C0392B, #E84141, #E85D26, #C0392B);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
 }

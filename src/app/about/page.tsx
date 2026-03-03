@@ -2,6 +2,8 @@
 
 import AboutHero from "@/components/sections/about/AboutHero";
 import Story from "@/components/sections/about/Story";
+import Studio from "@/components/sections/about/Studio";
+import Philosophy from "@/components/sections/about/Philosophy";
 import Values from "@/components/sections/about/Values";
 import Button from "@/components/ui/Button";
 
@@ -10,6 +12,8 @@ export default function AboutPage() {
         <>
             <AboutHero />
             <Story />
+            <Studio />
+            <Philosophy />
             <Values />
 
             {/* CTA Section */}

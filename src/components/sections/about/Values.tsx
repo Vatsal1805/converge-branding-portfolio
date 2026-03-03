@@ -29,7 +29,7 @@ export default function Values() {
                 <h2 className="section-title">The Converge Philosophy</h2>
             </div>
 
-            <div ref={revealRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div ref={revealRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {values.map((value, i) => (
                     <div key={i} className="value-card p-10 border border-white/[0.05] rounded-card bg-secondary/10 group transition-all duration-300 hover:border-accent/40">
                         <h3 className="font-syne font-bold text-[24px] text-white mb-4 transition-colors group-hover:text-accent">

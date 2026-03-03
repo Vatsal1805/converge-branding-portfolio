@@ -2,23 +2,20 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "@/components/ui/Button";
+import { projects as allProjectsData } from "@/data/projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const allProjects = [
-    { name: "Zupitar Fashion", category: "Branding", image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80" },
-    { name: "Nexora Wear", category: "AI Photography", image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80" },
-    { name: "LuxLabel Co", category: "Campaigns", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80" },
-    { name: "Aether Style", category: "Branding", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" },
-    { name: "Vogue AI", category: "AI Photography", image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" },
-    { name: "Ethereal Silk", category: "Campaigns", image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80" },
-    { name: "Nova Brand", category: "Branding", image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80" },
-    { name: "Chrome Collective", category: "AI Photography", image: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=800&q=80" },
-    { name: "Velvet Noir", category: "Campaigns", image: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=800&q=80" },
-];
+const allProjects = allProjectsData.map((p) => ({
+    slug: p.slug,
+    name: p.name,
+    category: p.category,
+    image: p.heroImage.replace("w=1600", "w=800"),
+}));
 
 const filters = ["All", "Branding", "AI Photography", "Campaigns"];
 
@@ -70,14 +67,14 @@ export default function ProjectGrid() {
         <section className="pb-[60px] md:pb-[80px] lg:pb-[120px]">
             <div className="max-w-content mx-auto px-[24px] md:px-[40px] lg:px-[80px]">
                 {/* Filter Tabs */}
-                <div className="flex justify-center mb-12">
+                <div className="flex w-full overflow-x-auto scrollbar-none [&::-webkit-scrollbar]:hidden -mx-[24px] px-[24px] md:mx-0 md:px-0 md:justify-center mb-12" style={{ WebkitOverflowScrolling: "touch" }}>
                     <div
                         ref={tabsRef}
-                        className="relative inline-flex bg-secondary rounded-full p-1 border border-white/[0.07]"
+                        className="relative inline-flex bg-secondary rounded-full p-1 border border-white/[0.07] w-max"
                     >
                         <div
                             ref={indicatorRef}
-                            className="absolute top-1 left-0 h-[calc(100%-8px)] bg-accent rounded-full transition-none"
+                            className="absolute top-1 left-1 h-[calc(100%-8px)] bg-accent rounded-full transition-none"
                             style={{ width: 0 }}
                         />
                         {filters.map((filter) => (
@@ -97,9 +94,10 @@ export default function ProjectGrid() {
                 {/* Grid */}
                 <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {visible.map((project, i) => (
-                        <div
+                        <Link
                             key={`${project.name}-${i}`}
-                            className="project-card group relative overflow-hidden rounded-card h-[280px] md:h-[320px] lg:h-[360px] max-h-[380px] border border-white/[0.07]"
+                            href={`/work/${project.slug}`}
+                            className="project-card group relative overflow-hidden rounded-card h-[260px] md:h-[300px] lg:h-[360px] border border-white/[0.07] block"
                             data-cursor="project"
                         >
                             <Image
@@ -121,7 +119,7 @@ export default function ProjectGrid() {
                                     View project details →
                                 </p>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
 

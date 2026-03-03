@@ -74,7 +74,7 @@ function SocialIcon({
 export default function Footer() {
     return (
         <footer className="bg-[#0A0A0A] border-t border-white/[0.08]">
-            <div className="max-w-content mx-auto px-[24px] md:px-[40px] lg:px-[80px] pt-[80px] pb-[40px]">
+            <div className="max-w-content mx-auto px-[24px] md:px-[40px] lg:px-[80px] pt-[40px] md:pt-[60px] lg:pt-[80px] pb-[40px]">
                 {/* 4-Column Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
                     {/* Col 1: Logo + Tagline + Social */}

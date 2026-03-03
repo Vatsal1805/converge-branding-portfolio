@@ -90,7 +90,7 @@ export default function Hero() {
     return (
         <section
             ref={heroRef}
-            className="relative h-screen flex flex-col items-center justify-center overflow-hidden -mt-[80px] pt-[80px]"
+            className="relative min-h-[100svh] h-auto lg:h-screen flex flex-col items-center justify-center overflow-hidden -mt-[80px] pt-[100px] lg:pt-[80px] px-[24px] pb-[60px] lg:pb-0"
         >
             {/* Background layers */}
             <div className="absolute inset-0 bg-background" />
@@ -129,13 +129,13 @@ export default function Hero() {
                 {/* Headline */}
                 <div className="space-y-0 mb-5">
                     <div ref={line1Ref} className="will-change-transform" style={{ clipPath: "inset(0 100% 0 0)" }}>
-                        <h1 className="font-syne font-extrabold text-hero leading-[0.92] tracking-[-3px] text-textWhite whitespace-nowrap">
+                        <h1 className="font-syne font-extrabold text-[clamp(36px,10vw,52px)] md:text-[clamp(40px,7vw,64px)] lg:text-[clamp(56px,7vw,96px)] leading-[0.92] tracking-[-3px] text-textWhite whitespace-normal lg:whitespace-nowrap">
                             WE BRAND.
                         </h1>
                     </div>
                     <div ref={line2Ref} className="will-change-transform" style={{ clipPath: "inset(0 100% 0 0)" }}>
                         <h1
-                            className="font-syne font-extrabold text-hero leading-[0.92] tracking-[-3px] whitespace-nowrap"
+                            className="font-syne font-extrabold text-[clamp(36px,10vw,52px)] md:text-[clamp(40px,7vw,64px)] lg:text-[clamp(56px,7vw,96px)] leading-[0.92] tracking-[-3px] whitespace-normal lg:whitespace-nowrap"
                             style={{
                                 WebkitTextStroke: "1.5px #F5F0EC",
                                 color: "transparent",
@@ -145,7 +145,7 @@ export default function Hero() {
                         </h1>
                     </div>
                     <div ref={line3Ref} className="will-change-transform" style={{ clipPath: "inset(0 100% 0 0)" }}>
-                        <h1 className="font-syne font-extrabold text-hero leading-[0.92] tracking-[-3px] text-accent whitespace-nowrap">
+                        <h1 className="font-syne font-extrabold text-[clamp(36px,10vw,52px)] md:text-[clamp(40px,7vw,64px)] lg:text-[clamp(56px,7vw,96px)] leading-[0.92] tracking-[-3px] text-accent whitespace-normal lg:whitespace-nowrap">
                             WE ELEVATE.
                         </h1>
                     </div>
@@ -163,14 +163,18 @@ export default function Hero() {
                 {/* Buttons */}
                 <div
                     ref={buttonsRef}
-                    className="flex justify-center gap-4 opacity-0 mb-10"
+                    className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 opacity-0 mb-10 w-full md:w-auto"
                 >
-                    <Button variant="primary" href="/contact">
-                        Book a Free Call
-                    </Button>
-                    <Button variant="ghost" href="/work">
-                        Explore Work
-                    </Button>
+                    <div className="w-full sm:w-auto text-center *:w-full *:sm:w-auto">
+                        <Button variant="primary" href="/contact">
+                            Book a Free Call
+                        </Button>
+                    </div>
+                    <div className="w-full sm:w-auto text-center *:w-full *:sm:w-auto">
+                        <Button variant="ghost" href="/work">
+                            Explore Work
+                        </Button>
+                    </div>
                 </div>
 
                 {/* Divider */}
@@ -179,13 +183,13 @@ export default function Hero() {
                 {/* Stats */}
                 <div
                     ref={statsRef}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-[60px] opacity-0"
+                    className="flex flex-row items-center justify-center gap-[24px] lg:gap-[60px] opacity-0"
                 >
-                    <StatCounter value={120} suffix="+" label="Brands Elevated" />
-                    <div className="hidden sm:block w-[1px] h-10 bg-white/10" />
-                    <StatCounter value={50} suffix="K+" label="Visuals Delivered" />
-                    <div className="hidden sm:block w-[1px] h-10 bg-white/10" />
-                    <StatCounter value={98} suffix="%" label="Client Retention" />
+                    <StatCounter value={120} suffix="+" label="Brands" />
+                    <div className="hidden lg:block w-[1px] h-10 bg-white/10" />
+                    <StatCounter value={50} suffix="K+" label="Visuals" />
+                    <div className="hidden lg:block w-[1px] h-10 bg-white/10" />
+                    <StatCounter value={98} suffix="%" label="Retention" />
                 </div>
             </div>
 

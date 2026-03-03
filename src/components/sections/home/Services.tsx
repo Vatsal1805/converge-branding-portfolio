@@ -105,10 +105,10 @@ export default function Services() {
                 {services.map((service, i) => (
                     <div
                         key={i}
-                        className="service-card card-base p-0 flex flex-col min-h-[320px] max-h-[420px]"
+                        className="service-card card-base p-0 flex flex-col min-h-[280px] lg:min-h-[320px] max-h-[420px]"
                         data-magnetic
                     >
-                        <div className="relative h-[180px] overflow-hidden rounded-t-card">
+                        <div className="relative h-[180px] lg:h-[220px] overflow-hidden rounded-t-card">
                             <Image
                                 src={service.image}
                                 alt={service.title}
@@ -117,7 +117,7 @@ export default function Services() {
                                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             />
                         </div>
-                        <div className="p-6 flex-1">
+                        <div className="p-[20px] lg:p-[32px] flex-1">
                             <h3 className="font-syne font-bold text-[20px] text-textWhite mb-3">
                                 {service.title}
                             </h3>

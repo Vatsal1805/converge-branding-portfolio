@@ -8,6 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'sm': '640px',
+        'md': '768px',     // tablet
+        'lg': '1024px',    // desktop
+        'xl': '1280px',
+      },
       colors: {
         background: "#080808",
         secondary: "#111111",
@@ -39,6 +45,11 @@ const config: Config = {
       },
       maxWidth: {
         content: "1280px",
+      },
+      padding: {
+        "mobile": "24px",
+        "tablet": "40px",
+        "desktop": "80px",
       },
       borderRadius: {
         card: "16px",
